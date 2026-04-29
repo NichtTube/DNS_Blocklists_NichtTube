@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - '*.txt'
+      - 'VERSION'
       - '!LICENSE'
 
 permissions:
@@ -16,14 +17,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Update headers in all .txt blocklists
         run: |
-          DATE=$(date -u +"%d.%m.%Y")
-          VERSION=$(git describe --tags --abbrev=0 2>/dev/null || echo "0.0.0")
-          VERSION=${VERSION#v}
+          DATE=$(TZ=Europe/Zurich date +"%d.%m.%Y")
+          VERSION=$(tr -d '[:space:]' < VERSION 2>/dev/null || echo "0.0.0")
 
           for f in *.txt; do
             [ -f "$f" ] || continue
