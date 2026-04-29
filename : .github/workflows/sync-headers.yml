@@ -1,0 +1,42 @@
+name: Sync blocklist headers
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '*.txt'
+      - '!LICENSE'
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Update headers in all .txt blocklists
+        run: |
+          DATE=$(date -u +"%d.%m.%Y")
+          VERSION=$(git describe --tags --abbrev=0 2>/dev/null || echo "0.0.0")
+          VERSION=${VERSION#v}
+
+          for f in *.txt; do
+            [ -f "$f" ] || continue
+            sed -i -E "s|^! Last modified:.*|! Last modified: ${DATE}|" "$f"
+            sed -i -E "s|^! Version:.*|! Version: ${VERSION}|" "$f"
+          done
+
+      - name: Commit if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if ! git diff --quiet; then
+            git add *.txt
+            git commit -m "chore: auto-sync blocklist headers [skip ci]"
+            git push
+          fi
