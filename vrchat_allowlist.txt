@@ -1,9 +1,9 @@
 !
 ! Title: NichtTube's VRChat Allowlist
 ! Description: Whitelist for VRChat to override aggressive DNS blocklists. Covers core VRChat infrastructure, Photon realtime networking, Unity services, and (optional) trusted media hosts. Source: live api.vrchat.cloud/api/1/config + creators.vrchat.com docs.
-! Version: 1.0.0
+! Version: 1.1.0
 ! Homepage: https://github.com/NichtTube/DNS_Blocklists_NichtTube
-! Last modified: 30.04.2026
+! Last modified: 29.04.2026
 ! Syntax: AdGuard
 !
 ! USAGE NOTE
