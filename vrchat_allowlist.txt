@@ -1,9 +1,9 @@
 !
 ! Title: NichtTube's VRChat Allowlist
 ! Description: Minimal allowlist for VRChat core infrastructure. Designed to NOT interfere with ad/tracker blocking on shared media hosts (YouTube, Twitch, Imgur, etc.). Only domains that are exclusively VRChat or Photon are exempted.
-! Version: 1.0.0
+! Version: 1.1.1
 ! Homepage: https://github.com/NichtTube/DNS_Blocklists_NichtTube
-! Last modified: 29.04.2026
+! Last modified: 30.04.2026
 ! Syntax: AdGuard
 !
 ! USAGE NOTE
