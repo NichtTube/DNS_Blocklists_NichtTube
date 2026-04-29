@@ -9,9 +9,9 @@ Custom DNS blocklists in AdGuard filter syntax for use with **AdGuard Home** and
 
 ## Available Lists
 
-| List | Purpose | Rules |
+| List | Purpose |
 |---|---|---|
-| `meta_quest_pro_dns_blocklist.txt` | Blocks Meta / Oculus / Facebook endpoints to suppress OTA updates and telemetry on the Meta Quest Pro | 16 |
+| `meta_quest_pro_dns_blocklist.txt` | Blocks Meta / Oculus / Facebook endpoints to suppress OTA updates and telemetry on the Meta Quest Pro |
 
 ## Subscription URLs
 
