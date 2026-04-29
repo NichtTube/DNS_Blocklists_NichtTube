@@ -1,7 +1,7 @@
 !
 ! Title: NichtTube's Meta Quest Pro Update Blocklist
 ! Description: Blocks Meta Quest Pro OTA update check endpoints. Goal: prevent automatic firmware updates without breaking login, store, pairing, or social features - and without collateral damage on other devices when applied network-wide.
-! Version: 1.0.0
+! Version: 1.1.1
 ! Homepage: https://github.com/NichtTube/DNS_Blocklists_NichtTube
 ! Last modified: 29.04.2026
 ! Syntax: AdGuard
