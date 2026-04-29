@@ -1,91 +1,54 @@
 !
 ! Title: NichtTube's VRChat Allowlist
-! Description: Whitelist for VRChat to override aggressive DNS blocklists. Covers core VRChat infrastructure, Photon realtime networking, Unity services, and (optional) trusted media hosts. Source: live api.vrchat.cloud/api/1/config + creators.vrchat.com docs.
-! Version: 1.1.0
+! Description: Minimal allowlist for VRChat core infrastructure. Designed to NOT interfere with ad/tracker blocking on shared media hosts (YouTube, Twitch, Imgur, etc.). Only domains that are exclusively VRChat or Photon are exempted.
+! Version: 1.1.1
 ! Homepage: https://github.com/NichtTube/DNS_Blocklists_NichtTube
-! Last modified: 29.04.2026
+! Last modified: 30.04.2026
 ! Syntax: AdGuard
 !
 ! USAGE NOTE
-! All rules use @@||domain^$important so they override even high-priority
-! block rules from other lists. Apply this list network-wide if you play
-! VRChat on multiple devices, or per-client to your VR device.
+! This list deliberately does NOT allowlist YouTube, Twitch, Imgur, Twitter
+! or other shared media hosts. Reason: $important would override your ad
+! and tracking blocks on those services. DNS-level blocklists do not block
+! these domains at the apex anyway - their ad blocking happens elsewhere.
 !
-! ⚠️ CONFLICT NOTE: Some entries below (*.facebook.com, *.fbcdn.net) are
-! intentionally blocked by meta_quest_pro_dns_blocklist.txt. If you play
-! VRChat on the Quest Pro and need Facebook-hosted video content in worlds,
-! either disable those entries here or scope the Quest blocklist tightly.
+! If a specific VRChat world fails to load video/image content, add a
+! TARGETED, SCOPED rule for that exact subdomain via your AdGuard Home
+! per-client config - do NOT widen this list.
 !
 # === Core VRChat infrastructure (REQUIRED) ===
-# *.vrchat.com covers assets.vrchat.com, redirect.vrchat.com, www.vrchat.com
 @@||vrchat.com^$important
-# *.vrchat.cloud covers api, files, dev-assets - NOT covered by vrchat.com rule
 @@||vrchat.cloud^$important
 
 # === Photon realtime networking (REQUIRED) ===
-# Master + game servers; without these you get ClientTimeout on instance join
+# Without these: ClientTimeout on every instance join.
+# These domains are Photon-exclusive - no ad/tracker collateral.
 @@||exitgames.com^$important
 @@||photonengine.io^$important
 
-# === VRChat CDN (REQUIRED) ===
-# Specific CloudFront distributions used by VRChat for SDK plugins,
-# avatar/world content, and Twitch-mirrored video content
+# === VRChat-exclusive CloudFront distributions (REQUIRED) ===
+# Specific distribution IDs - not the wildcard *.cloudfront.net.
+# Sourced from api.vrchat.cloud/api/1/config (whiteListedAssetUrls + urlList).
 @@||dbinj8iahsbec.cloudfront.net^$important
 @@||dqrpb9wgowsf5.cloudfront.net^$important
 @@||ds0h3roq6wcgc.cloudfront.net^$important
 @@||d2nvs31859zcd8.cloudfront.net^$important
 
 # === Unity services (REQUIRED) ===
+# Game engine runtime services. Not in any major DNS blocklist.
 @@||unity3d.com^$important
 @@||unity.com^$important
 
-# === Auth provider OAuth (login flow) ===
-@@||accounts.google.com^$important
-
-# === OPTIONAL: Trusted video hosts ===
-# Enable individually if worlds use video players with these services.
-# Sourced from VRChat's live urlList (59 entries trimmed to commonly
-# ad-blocker-conflicted ones).
-@@||youtube.com^$important
-@@||youtu.be^$important
-@@||googlevideo.com^$important
-@@||ytimg.com^$important
-@@||twitch.tv^$important
-@@||ttvnw.net^$important
-@@||twitchcdn.net^$important
-@@||jtvnw.net^$important
-@@||vimeo.com^$important
-@@||sndcdn.com^$important
-@@||mixcloud.com^$important
-@@||vrcdn.live^$important
-@@||vrcdn.video^$important
-@@||vrcdn.cloud^$important
-@@||hyperbeam.com^$important
-@@||hyperbeam.dev^$important
-@@||topaz.chat^$important
-@@||vod-progressive.akamaized.net^$important
-
-# === OPTIONAL: Trusted image hosts ===
-# Image loading in worlds (Udon VRCImageDownloader). Sourced from
-# imageHostUrlList. Many ad/tracker lists block imgur and twimg.
-@@||imgur.com^$important
-@@||twimg.com^$important
-@@||redd.it^$important
-@@||ibb.co^$important
-@@||postimg.cc^$important
-@@||imgbox.com^$important
-@@||imagebam.com^$important
-@@||dropbox.com^$important
-@@||dropboxusercontent.com^$important
-
-# === OPTIONAL: Trusted string hosts ===
-# String loading via Udon VRCStringDownloader. github.io is heavily used.
-@@||github.io^$important
-@@||githubusercontent.com^$important
-@@||pastebin.com^$important
-
-# === OPTIONAL: Facebook video allowlist ===
-# Disabled by default - conflicts with meta_quest_pro_dns_blocklist.txt.
-# Enable only if you do NOT use the Quest Pro blocklist on this device.
-! @@||facebook.com^$important
-! @@||fbcdn.net^$important
+# === DELIBERATELY NOT INCLUDED ===
+# The following were considered and rejected to preserve your ad blocking:
+#   youtube.com, googlevideo.com, ytimg.com - YT ad-blocking lives in
+#     browser extension; DNS allowlist would not affect that anyway, but
+#     would defeat any tracking subdomain blocks.
+#   twitch.tv, ttvnw.net, twitchcdn.net, jtvnw.net - same logic.
+#   imgur.com, twimg.com, redd.it - tracking pixels on these ARE typically
+#     blocked at DNS level. Allowlisting them defeats privacy protection.
+#   facebook.com, fbcdn.net - conflicts with meta_quest_pro_dns_blocklist.
+#
+# If you encounter a VRChat world that needs one of these, add the SPECIFIC
+# subdomain (e.g. @@||i.imgur.com^$important) to AdGuard Home per-client
+# rules - not to this network-wide list.
