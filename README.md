@@ -2,7 +2,6 @@
 
 [![License: MIT](https://img.shields.io/github/license/NichtTube/DNS_Blocklists_NichtTube?style=flat-square)](LICENSE)
 [![Last Commit](https://img.shields.io/github/last-commit/NichtTube/DNS_Blocklists_NichtTube?style=flat-square)](https://github.com/NichtTube/DNS_Blocklists_NichtTube/commits/main)
-[![Latest Release](https://img.shields.io/github/v/release/NichtTube/DNS_Blocklists_NichtTube?style=flat-square)](https://github.com/NichtTube/DNS_Blocklists_NichtTube/releases)
 [![Stars](https://img.shields.io/github/stars/NichtTube/DNS_Blocklists_NichtTube?style=flat-square)](https://github.com/NichtTube/DNS_Blocklists_NichtTube/stargazers)
 [![Issues](https://img.shields.io/github/issues/NichtTube/DNS_Blocklists_NichtTube?style=flat-square)](https://github.com/NichtTube/DNS_Blocklists_NichtTube/issues)
 
@@ -42,16 +41,6 @@ Pick one channel and use it consistently in your DNS resolver.
 
 ## Format
 AdGuard filter syntax: `||domain` rules, `!` header comments, `#` section comments. Compatible with AdGuard Home, AdGuard DNS, the AdGuard browser extension, and Pi-hole when the AdBlock Plus parser is enabled.
-
-## Versioning
-
-This repo follows [SemVer](https://semver.org/) via Git tags:
-
-- **MAJOR** – breaking changes (list renamed/removed, format change)
-- **MINOR** – new lists or significant additions of rules
-- **PATCH** – rule additions/removals/fixes within an existing list
-
-Each release is tagged (`vX.Y.Z`) and listed under [Releases](https://github.com/NichtTube/DNS_Blocklists_NichtTube/releases). The `Version:` header inside each `.txt` file mirrors the repo tag at release time.
 
 ## Notes
 - Lists are maintained manually — no CI/automated build.
