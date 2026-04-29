@@ -7,7 +7,7 @@
 [![jsDelivr Hits](https://img.shields.io/jsdelivr/gh/hm/NichtTube/DNS_Blocklists_NichtTube?style=flat-square&label=jsDelivr%20hits)](https://www.jsdelivr.com/package/gh/NichtTube/DNS_Blocklists_NichtTube)
 [![Stars](https://img.shields.io/github/stars/NichtTube/DNS_Blocklists_NichtTube?style=flat-square)](https://github.com/NichtTube/DNS_Blocklists_NichtTube/stargazers)
 [![Issues](https://img.shields.io/github/issues/NichtTube/DNS_Blocklists_NichtTube?style=flat-square)](https://github.com/NichtTube/DNS_Blocklists_NichtTube/issues)
-[![Version](https://img.shields.io/badge/dynamic/regex?url=https%3A%2F%2Fraw.githubusercontent.com%2FNichtTube%2FDNS_Blocklists_NichtTube%2Fmain%2FVERSION&search=([0-9.]+)&label=version&style=flat-square)](./VERSION)
+[![Version](https://img.shields.io/badge/dynamic/regex?url=https%3A%2F%2Fraw.githubusercontent.com%2FNichtTube%2FDNS_Blocklists_NichtTube%2Fmain%2FVERSION&search=%28%5B0-9.%5D%2B%29&replace=%241&label=version&style=flat-square)](./VERSION)
 
 Custom DNS blocklists in AdGuard filter syntax for use with **AdGuard Home** and **AdGuard DNS**.
 
