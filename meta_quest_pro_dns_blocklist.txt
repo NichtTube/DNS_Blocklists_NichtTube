@@ -1,0 +1,23 @@
+!
+! Title: NichtTube's Meta Quest Pro Blocklist
+! Description: Blocks all Meta/Oculus Requests to prevent Updates
+! Version: 1.0
+! Homepage: https://github.com/NichtTube/DNS_Blocklists_NichtTube
+! Last modified: 29.04.2026
+!
+# META DOMAINS
+||horizon.meta.com
+# OCULUS DOMAINS
+||securecdn.oculus.com
+||realitylabs-graph.oculus.com
+||graph.oculus.com
+# FACEBOOK DOMAINS
+||b-www.facebook.com
+||edge-mqtt.facebook.com
+||gateway.facebook.com
+||graph.facebook-hardware.com
+||portal.fb.com
+||graph.facebook.com
+# OTHER DOMAINS
+||scontent-zrh1-1.xx.fbcdn.net
+||scontent-zrh1-1.oculuscdn.com
