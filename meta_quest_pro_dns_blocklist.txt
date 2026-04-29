@@ -39,3 +39,5 @@
 ! ||graph.facebook.com^
 ! ||edge-mqtt.facebook.com^
 ! ||gateway.facebook.com^
+
+! Nya x3
