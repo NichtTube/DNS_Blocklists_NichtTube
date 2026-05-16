@@ -1,7 +1,7 @@
 !
 ! Title: NichtTube's Star Citizen Allowlist
 ! Description: Minimal allowlist for Star Citizen (RSI Launcher + game client + Easy Anti-Cheat + Epic Online Services). Override for aggressive blocklists that break login, patching or server join (ClientTimeout / 15006 / 30000 / EOS_NoConnection).
-! Version: 1.0
+! Version: 1.2
 ! Homepage: https://github.com/NichtTube/DNS_Blocklists_NichtTube
 ! Last modified: 16.05.2026
 ! Syntax: AdGuard
