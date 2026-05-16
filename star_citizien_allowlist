@@ -1,0 +1,66 @@
+!
+! Title: NichtTube's Star Citizen Allowlist
+! Description: Minimal allowlist for Star Citizen (RSI Launcher + game client + Easy Anti-Cheat + Epic Online Services). Override for aggressive blocklists that break login, patching or server join (ClientTimeout / 15006 / 30000 / EOS_NoConnection).
+! Version: 1.0
+! Homepage: https://github.com/NichtTube/DNS_Blocklists_NichtTube
+! Last modified: 16.05.2026
+! Syntax: AdGuard
+!
+! USAGE NOTE
+! Symptom this list fixes: Launcher logs in fine but the game cannot
+! join servers, or EAC fails to initialise. Root cause is usually that
+! the EAC module CDN (on.epicgames.com) and the EOS SDK auth endpoint
+! (api.epicgames.dev) are DNS-blocked by privacy / tracking blocklists.
+!
+! Star Citizen ALSO needs direct UDP/TCP to RSI game servers:
+!   TCP 8000-8020, UDP 64090-64110
+! Those are NOT DNS-routed and cannot be fixed by an allowlist - check
+! your firewall / router / ISP if you suspect those are blocked.
+!
+! This list deliberately does NOT allowlist epicgames.com broadly.
+! Only the EAC/EOS-specific parent domains are exempted, so that
+! Epic Games Store tracking on www.epicgames.com etc. stays blocked.
+!
+# === RSI / Cloud Imperium core (REQUIRED) ===
+# Covers login, launcher API, patcher manifest, install endpoints,
+# Spectrum and public.universe.robertsspaceindustries.com.
+@@||robertsspaceindustries.com^$important
+@@||cloudimperiumgames.com^$important
+@@||turbulent.ca^$important
+
+# === Easy Anti-Cheat backend (REQUIRED since Alpha 3.15.1) ===
+# Without these: EAC blocks login, server join fails silently.
+# - easyanticheat.net : hydra / gossip backend (heartbeat + status)
+# - easy.ac           : short alias domain
+# - eac-cdn.com       : legacy CDN, still serves older module URLs
+@@||easyanticheat.net^$important
+@@||easy.ac^$important
+@@||eac-cdn.com^$important
+
+# === Epic Online Services (REQUIRED for EAC since Epic acquisition) ===
+# - on.epicgames.com : modules-cdn.eac-prod.on.epicgames.com
+#                      (current EAC module download CDN)
+# - epicgames.dev    : api.epicgames.dev
+#                      (EOS SDK platform config + telemetry)
+# Symptom if blocked: EOS_NoConnection in EasyAntiCheat logs.
+@@||on.epicgames.com^$important
+@@||epicgames.dev^$important
+@@||datarouter.ol.epicgames.com^$important
+
+# === DELIBERATELY NOT INCLUDED ===
+# epicgames.com    - too broad. Epic Games Store tracking lives under
+#                    www.epicgames.com, tracking.epicgames.com etc.
+#                    EAC + EOS use the scoped subdomains above, not
+#                    the apex epicgames.com - keep tracker blocks intact.
+# *.cloudfront.net - CIG ships game patches via Amazon CloudFront with
+#                    dynamic distribution IDs. Standard DNS blocklists
+#                    don't block *.cloudfront.net at the apex anyway.
+#                    If patching stalls, allowlist the specific
+#                    distribution per-client, not the wildcard.
+# *.amazonaws.com  - same logic as cloudfront.net.
+#
+# If a future SC build adds a new auth / telemetry domain not covered
+# here, check the launcher log:
+#   %LOCALAPPDATA%\rsilauncher\logs\
+# and the EAC log:
+#   <SC install>\LIVE\EasyAntiCheat\Logs\
