@@ -16,6 +16,7 @@ Custom DNS blocklists in AdGuard filter syntax for use with **AdGuard Home** and
 |---|---|
 | [`meta_quest_pro_dns_blocklist.txt`](./meta_quest_pro_dns_blocklist.txt) | Blocks Meta Quest Pro OTA update check endpoints. Prevents automatic firmware updates without breaking login, store, pairing, or social features. |
 | [`vrchat_allowlist.txt`](./vrchat_allowlist.txt) | Whitelist for VRChat (core API, Photon networking, Unity, trusted media hosts). Override for aggressive blocklists that break VRChat connectivity. |
+| [`star_citizen_allowlist.txt`](./star_citizen_allowlist.txt) | Allowlist for Star Citizen (RSI Launcher, Easy Anti-Cheat, Epic Online Services). Override for aggressive blocklists that break login, patching or server join (ClientTimeout / 15006 / 30000 / EOS_NoConnection). |
 
 ## Subscription URLs
 
