@@ -63,4 +63,4 @@ This repo follows [SemVer](https://semver.org/) via Git tags (`vX.Y.Z`). Each re
 - Issues / PRs for additions or false positives are welcome.
 
 ## License
-[MIT](LICENSE) © NichtTube
+[Apache License 2.0](LICENSE) © NichtTube
