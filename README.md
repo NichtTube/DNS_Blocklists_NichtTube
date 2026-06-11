@@ -2,7 +2,6 @@
 
 [![License: Apache 2.0](https://img.shields.io/github/license/NichtTube/DNS_Blocklists_NichtTube?style=flat-square)](LICENSE)
 [![Latest Release](https://img.shields.io/github/v/release/NichtTube/DNS_Blocklists_NichtTube?style=flat-square)](https://github.com/NichtTube/DNS_Blocklists_NichtTube/releases)
-[![Last Commit](https://img.shields.io/github/last-commit/NichtTube/DNS_Blocklists_NichtTube?style=flat-square)](https://github.com/NichtTube/DNS_Blocklists_NichtTube/commits/main)
 [![Repo Size](https://img.shields.io/github/repo-size/NichtTube/DNS_Blocklists_NichtTube?style=flat-square)](#)
 [![jsDelivr Hits](https://img.shields.io/jsdelivr/gh/hm/NichtTube/DNS_Blocklists_NichtTube?style=flat-square&label=jsDelivr%20hits)](https://www.jsdelivr.com/package/gh/NichtTube/DNS_Blocklists_NichtTube)
 [![Stars](https://img.shields.io/github/stars/NichtTube/DNS_Blocklists_NichtTube?style=flat-square)](https://github.com/NichtTube/DNS_Blocklists_NichtTube/stargazers)
